@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veritas · New Market</title>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+</head>
+<body data-page="markets" data-crumb="Markets|markets.html > New Market">
+  <div class="page-inner" style="max-width:920px">
+
+    <div class="page-head">
+      <h1 class="page-title">Create a market</h1>
+      <p class="page-sub">Define a question Veritas can resolve objectively and verifiably</p>
+    </div>
+
+    <div data-wizard>
+      <!-- Stepper -->
+      <div class="stepper">
+        <div class="step active"><span class="step-num">1</span><span class="step-label">Define</span></div>
+        <div class="step-line"></div>
+        <div class="step"><span class="step-num">2</span><span class="step-label">Criteria &amp; Sources</span></div>
+        <div class="step-line"></div>
+        <div class="step"><span class="step-num">3</span><span class="step-label">Council</span></div>
+        <div class="step-line"></div>
+        <div class="step"><span class="step-num">4</span><span class="step-label">Deploy</span></div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div data-step-panel="1">
+        <div class="card card-pad">
+          <div class="field mb-5">
+            <label class="field-label">Resolution question</label>
+            <textarea class="textarea" rows="2">Did the Federal Reserve cut interest rates at its June 2026 meeting?</textarea>
+          </div>
+
+          <div class="well pad-5 mb-5">
+            <div class="row gap-2 mb-4"><span class="itile accent" style="width:26px;height:26px"><i data-icon="scan" data-size="14"></i></span><span class="h3">Veritas analysis</span><span class="pill pill-accent ml-auto">live</span></div>
+            <div class="validator">
+              <div class="val-row ok"><i data-icon="circlecheck"></i><span class="vr-text">Question is <b>binary</b> — resolvable as YES / NO.</span></div>
+              <div class="val-row ok"><i data-icon="circlecheck"></i><span class="vr-text">Contains a specific <b>event</b> and <b>timeframe</b>.</span></div>
+              <div class="val-row ok"><i data-icon="circlecheck"></i><span class="vr-text">A <b>primary authority</b> is likely available: Federal Reserve (fed.gov).</span></div>
+              <div class="val-row warn">
+                <i data-icon="warn"></i>
+                <div>
+                  <span class="vr-text"><b>"June 2026 meeting" is ambiguous</b> — there is only one FOMC meeting in June 2026 (June 16–17), but stating the dates removes any doubt.</span>
+                  <div class="val-suggest"><i data-icon="sparkle"></i>Apply suggestion: "…at its June 16–17, 2026 FOMC meeting?"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <label class="field-label mb-3">Start from a template</label>
+          <div class="src-grid">
+            <span class="src-chip"><i data-icon="barchart" data-size="14" class="t-3"></i>Macro event</span>
+            <span class="src-chip"><i data-icon="activity" data-size="14" class="t-3"></i>Sports outcome</span>
+            <span class="src-chip"><i data-icon="scale" data-size="14" class="t-3"></i>Governance vote</span>
+            <span class="src-chip"><i data-icon="coins" data-size="14" class="t-3"></i>Price event</span>
+            <span class="src-chip"><i data-icon="pencil" data-size="14" class="t-3"></i>Custom</span>
+          </div>
+        </div>
+        <div class="row-between mt-4">
+          <a class="btn btn-ghost" href="markets.html"><i data-icon="chevleft"></i>Cancel</a>
+          <button class="btn btn-primary" data-step-next>Continue<i data-icon="arrowright"></i></button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div data-step-panel="2" class="hidden">
+        <div class="card card-pad">
+          <div class="field mb-6">
+            <label class="field-label">Resolution criteria <span class="t-3 fw-500">— what counts as YES?</span></label>
+            <textarea class="textarea" rows="3">A reduction of any size to the federal funds target range is announced in the official FOMC statement released at the conclusion of the June 16–17, 2026 meeting.</textarea>
+            <span class="field-hint">Be specific and unambiguous. The council resolves strictly against this text.</span>
+          </div>
+
+          <div class="field mb-6">
+            <label class="field-label">Verification links <span class="t-3 fw-500">— the exact sources the oracle resolves against</span></label>
+            <div class="col gap-2 mb-3">
+              <div class="vlink">
+                <span class="vl-ico" style="background:var(--accent-soft);border-color:var(--accent-line);color:var(--accent)"><i data-icon="shieldcheck"></i></span>
+                <div class="grow" style="min-width:0"><div class="vl-url"><span class="vl-host">federalreserve.gov</span><span class="vl-path">/monetarypolicy</span></div></div>
+                <span class="role-tag role-standard">Primary</span>
+                <span class="tag-close"><i data-icon="x"></i></span>
+              </div>
+              <div class="vlink">
+                <span class="vl-ico"><i data-icon="globe"></i></span>
+                <div class="grow" style="min-width:0"><div class="vl-url"><span class="vl-host">wsj.com</span><span class="vl-path">/economy</span></div></div>
+                <span class="tag-close"><i data-icon="x"></i></span>
+              </div>
+              <div class="vlink">
+                <span class="vl-ico"><i data-icon="globe"></i></span>
+                <div class="grow" style="min-width:0"><div class="vl-url"><span class="vl-host">bloomberg.com</span></div></div>
+                <span class="tag-close"><i data-icon="x"></i></span>
+              </div>
+            </div>
+            <div class="input-wrap"><i data-icon="link"></i><input class="input" placeholder="Add a verification URL — e.g. nba.com for NBA games" /></div>
+            <span class="field-hint">At least one source must be marked <b class="t-2">Primary</b>. The oracle resolves strictly against these links.</span>
+          </div>
+
+          <div class="grid grid-2">
+            <div class="field">
+              <label class="field-label">Minimum source independence</label>
+              <select class="select"><option>3 independent sources</option><option>2 independent sources</option><option>5 independent sources</option></select>
+            </div>
+            <div class="field">
+              <label class="field-label">Excluded sources <span class="t-3 fw-500">(never cite)</span></label>
+              <div class="src-grid">
+                <span class="tag" style="border-color:var(--no-line)"><span class="cred low"><span class="cd"></span></span>ZeroHedge<span class="tag-close"><i data-icon="x"></i></span></span>
+                <span class="src-chip" style="cursor:pointer"><i data-icon="plus" data-size="13" class="t-3"></i>Add</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row-between mt-4">
+          <button class="btn btn-secondary" data-step-prev><i data-icon="chevleft"></i>Back</button>
+          <button class="btn btn-primary" data-step-next>Continue<i data-icon="arrowright"></i></button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div data-step-panel="3" class="hidden">
+        <div class="card card-pad">
+          <div class="banner info mb-5"><i data-icon="cpu"></i><div>Resolved by Veritas's <b>auto-selected weekly roster</b> — you don't hand-pick models. This week: 10 models, refreshed every Sunday by the selection oracle. <a class="t-accent" href="roster.html">View roster →</a></div></div>
+
+          <label class="field-label mb-3">Resolution mechanism</label>
+          <div class="grid grid-3 mb-6">
+            <div class="well pad-5"><div class="row gap-2 mb-2"><span class="role-tag role-standard"><i data-icon="cpu"></i>Standard</span><span class="ml-auto h2 tnum">3</span></div><p class="fs-xs t-3">3 models resolve. Unanimous → published.</p></div>
+            <div class="well pad-5"><div class="row gap-2 mb-2"><span class="role-tag role-escalation"><i data-icon="network"></i>Escalation</span><span class="ml-auto h2 tnum">9</span></div><p class="fs-xs t-3">On non-unanimous, the pool expands to 9.</p></div>
+            <div class="well pad-5"><div class="row gap-2 mb-2"><span class="role-tag role-tenth"><i data-icon="shield"></i>Tenth&nbsp;Man</span><span class="ml-auto h2 tnum">1</span></div><p class="fs-xs t-3">Smartest model challenges &amp; finalizes.</p></div>
+          </div>
+
+          <div class="well pad-5 mb-6">
+            <div class="row-between">
+              <div><div class="fw-500">Auto-escalate on non-unanimous</div><div class="fs-xs t-3 mt-1">Recommended. If disabled, a split standard panel returns UNRESOLVABLE instead of escalating.</div></div>
+              <label class="switch"><input type="checkbox" checked><span class="track"></span><span class="thumb"></span></label>
+            </div>
+          </div>
+
+          <div class="field mb-6">
+            <div class="row-between"><label class="field-label">Confidence threshold</label><span class="metric-inline"><span class="mv t-accent" id="thr-out">90%</span></span></div>
+            <div class="slider"><input type="range" min="70" max="99" value="90" data-output="#thr-out" data-suffix="%" /></div>
+            <span class="field-hint">Below this confidence, the resolution returns UNRESOLVABLE and bonds are refunded.</span>
+          </div>
+
+          <div class="grid grid-2 mb-5">
+            <div class="field"><label class="field-label">Resolution window</label><select class="select"><option>Opens at event date</option><option>Opens immediately</option></select></div>
+            <div class="field"><label class="field-label">Challenge window</label><select class="select"><option>2 hours</option><option>6 hours</option><option>24 hours</option></select></div>
+          </div>
+
+          <div class="divider mb-4"></div>
+          <div class="row gap-6 wrap">
+            <div class="metric-inline"><i data-icon="clock" data-size="15" class="t-3"></i><span class="t-3 fs-sm">Est. resolution</span><span class="mv">~4–8 min</span></div>
+            <div class="metric-inline"><i data-icon="dollar" data-size="15" class="t-3"></i><span class="t-3 fs-sm">Est. cost</span><span class="mv">$0.38</span><span class="t-3 fs-sm">+ gas · escalation billed only if triggered</span></div>
+          </div>
+        </div>
+        <div class="row-between mt-4">
+          <button class="btn btn-secondary" data-step-prev><i data-icon="chevleft"></i>Back</button>
+          <button class="btn btn-primary" data-step-next>Review<i data-icon="arrowright"></i></button>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div data-step-panel="4" class="hidden">
+        <div class="dryrun mb-4">
+          <div class="row gap-2 mb-3"><span class="itile accent" style="width:26px;height:26px"><i data-icon="scan" data-size="14"></i></span><span class="h3">Dry-run preview</span></div>
+          <p class="fs-sm t-2 mb-3">Veritas simulated this resolution against current data. This is a preview only — no on-chain action taken.</p>
+          <div class="row gap-3" style="align-items:baseline"><span class="h1 t-yes">YES</span><span class="t-3">simulated · 93.6% · standard panel unanimous (3/3) · no escalation</span></div>
+        </div>
+
+        <div class="card card-pad">
+          <div class="h3 mb-4">Market summary</div>
+          <dl class="kv" style="grid-template-columns:180px 1fr;gap:14px 16px">
+            <dt>Question</dt><dd>Did the Federal Reserve cut interest rates at its June 16–17, 2026 FOMC meeting?</dd>
+            <dt>Criteria</dt><dd>Any rate-range reduction announced in the official FOMC statement.</dd>
+            <dt>Verification links</dt><dd><span class="mono fs-sm">federalreserve.gov</span> <span class="t-3">(primary)</span> + wsj.com, bloomberg.com</dd>
+            <dt>Council</dt><dd>Weekly roster · standard 3 → escalation 9 → tenth man</dd>
+            <dt>Threshold</dt><dd>90% · auto-escalate on non-unanimous</dd>
+            <dt>Chains</dt><dd>Arbitrum · Base · Ethereum</dd>
+            <dt>Windows</dt><dd>Opens Jun 17 · Challenge +2h</dd>
+          </dl>
+          <div class="divider mt-5 mb-4"></div>
+          <div class="row-between">
+            <div class="metric-inline"><span class="t-3 fs-sm">Total</span><span class="mv">$0.38</span><span class="t-3 fs-sm">resolution fee + ~$0.12 gas</span></div>
+          </div>
+        </div>
+
+        <div class="row-between mt-4">
+          <button class="btn btn-secondary" data-step-prev><i data-icon="chevleft"></i>Back</button>
+          <div class="row gap-2">
+            <button class="btn btn-secondary"><i data-icon="refresh"></i>Re-run preview</button>
+            <button class="btn btn-primary"><i data-icon="box"></i>Deploy market</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
