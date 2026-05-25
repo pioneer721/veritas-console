@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veritas · Integrations</title>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+</head>
+<body data-page="integrations" data-crumb="Integrations">
+  <div class="page-inner">
+
+    <div class="page-head">
+      <h1 class="page-title">Integrations</h1>
+      <p class="page-sub">Wire Veritas into your protocol — keys, contracts, webhooks, SDK</p>
+    </div>
+
+    <div>
+      <div class="tabs" data-tab-group>
+        <div class="tab active" data-tab="keys"><i data-icon="key"></i>API Keys</div>
+        <div class="tab" data-tab="contracts"><i data-icon="box"></i>Contracts</div>
+        <div class="tab" data-tab="webhooks"><i data-icon="webhook"></i>Webhooks</div>
+        <div class="tab" data-tab="sdk"><i data-icon="code"></i>SDK</div>
+      </div>
+
+      <!-- API Keys -->
+      <div data-panel="keys" class="mt-4">
+        <div class="card">
+          <div class="card-head"><div class="h3"><i data-icon="key"></i>Production keys</div><button class="btn btn-secondary btn-sm"><i data-icon="plus"></i>Create key</button></div>
+          <table class="table">
+            <thead><tr><th>Name</th><th>Key</th><th>Last used</th><th>Rate limit</th><th>Permissions</th><th></th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="fw-500">veritas-prod-1</td>
+                <td><span class="mono fs-sm t-2">vk_live_8f…2a91</span></td>
+                <td class="fs-sm t-3">2m ago</td>
+                <td class="fs-sm">500 / min</td>
+                <td><span class="row gap-1 wrap"><span class="kbd">read</span><span class="kbd">resolve</span><span class="kbd">dispute</span></span></td>
+                <td><button class="btn-icon sm" data-copy="vk_live_8f2a91"><i data-icon="copy"></i></button></td>
+              </tr>
+              <tr>
+                <td class="fw-500">veritas-staging</td>
+                <td><span class="mono fs-sm t-2">vk_test_3c…77b0</span></td>
+                <td class="fs-sm t-3">3h ago</td>
+                <td class="fs-sm">50 / min</td>
+                <td><span class="kbd">read</span></td>
+                <td><button class="btn-icon sm" data-copy="vk_test_3c77b0"><i data-icon="copy"></i></button></td>
+              </tr>
+              <tr>
+                <td class="fw-500">dashboards-ro</td>
+                <td><span class="mono fs-sm t-2">vk_live_d1…04ef</span></td>
+                <td class="fs-sm t-3">just now</td>
+                <td class="fs-sm">200 / min</td>
+                <td><span class="kbd">read</span></td>
+                <td><button class="btn-icon sm" data-copy="vk_live_d104ef"><i data-icon="copy"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Contracts -->
+      <div data-panel="contracts" class="mt-4 hidden">
+        <div class="card mb-4">
+          <div class="card-head"><div class="h3"><i data-icon="box"></i>Oracle contract addresses</div></div>
+          <table class="table">
+            <thead><tr><th>Network</th><th>Address</th><th>ABI</th><th>Last resolved</th><th></th></tr></thead>
+            <tbody>
+              <tr>
+                <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Ethereum</span></td>
+                <td><span class="mono fs-sm t-2">0x4a3c…f291</span></td>
+                <td><a class="btn btn-ghost btn-sm"><i data-icon="download"></i>ABI</a></td>
+                <td class="fs-sm t-3">2m ago</td>
+                <td><button class="btn-icon sm" data-copy="0x4a3cf291"><i data-icon="copy"></i></button></td>
+              </tr>
+              <tr>
+                <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Base</span></td>
+                <td><span class="mono fs-sm t-2">0x9f2a…c882</span></td>
+                <td><a class="btn btn-ghost btn-sm"><i data-icon="download"></i>ABI</a></td>
+                <td class="fs-sm t-3">4m ago</td>
+                <td><button class="btn-icon sm" data-copy="0x9f2ac882"><i data-icon="copy"></i></button></td>
+              </tr>
+              <tr>
+                <td><span class="row gap-2"><span class="cred med"><span class="cd"></span></span>Arbitrum</span></td>
+                <td><span class="mono fs-sm t-2">0x3b1e…a119</span></td>
+                <td><a class="btn btn-ghost btn-sm"><i data-icon="download"></i>ABI</a></td>
+                <td class="fs-sm t-3">1m ago</td>
+                <td><button class="btn-icon sm" data-copy="0x3b1ea119"><i data-icon="copy"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-head"><span>IVeritasReceiver.sol — resolution callback</span><span class="btn-icon sm" data-copy="interface IVeritasReceiver"><i data-icon="copy"></i></span></div>
+        <pre class="code"><span class="c">// implement this to receive verdicts on-chain</span>
+<span class="k">interface</span> <span class="f">IVeritasReceiver</span> {
+    <span class="k">function</span> <span class="f">onResolution</span>(
+        <span class="k">bytes32</span> questionId,
+        <span class="k">bool</span>    verdict,
+        <span class="k">uint16</span>  confidence,   <span class="c">// basis points /1000</span>
+        <span class="k">bytes32</span> ipfsReport
+    ) <span class="k">external</span>;
+}</pre>
+      </div>
+
+      <!-- Webhooks -->
+      <div data-panel="webhooks" class="mt-4 hidden">
+        <div class="card mb-4">
+          <div class="card-head"><div class="h3"><i data-icon="webhook"></i>Endpoints</div><button class="btn btn-secondary btn-sm"><i data-icon="plus"></i>Add webhook</button></div>
+          <table class="table">
+            <thead><tr><th>URL</th><th>Events</th><th>Status</th><th>Last delivered</th></tr></thead>
+            <tbody>
+              <tr><td class="mono fs-sm t-2">api.yours.io/oracle</td><td><span class="row gap-1"><span class="kbd">resolved</span><span class="kbd">disputed</span></span></td><td><span class="pill pill-yes"><span class="dot dot-yes"></span>Active</span></td><td class="fs-sm t-3">1m ago</td></tr>
+              <tr><td class="mono fs-sm t-2">alerts.yours.io/ops</td><td><span class="row gap-1"><span class="kbd">degraded</span><span class="kbd">failed</span></span></td><td><span class="pill pill-yes"><span class="dot dot-yes"></span>Active</span></td><td class="fs-sm t-3">2h ago</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card card-pad">
+          <div class="eyebrow mb-3">Available events</div>
+          <div class="src-grid">
+            <span class="tag"><span class="dot dot-yes"></span>resolution.started</span>
+            <span class="tag"><span class="dot dot-yes"></span>resolution.completed</span>
+            <span class="tag"><span class="dot dot-no"></span>resolution.failed</span>
+            <span class="tag"><span class="dot dot-violet"></span>dispute.opened</span>
+            <span class="tag"><span class="dot dot-violet"></span>dispute.resolved</span>
+            <span class="tag"><span class="dot dot-amber"></span>challenge_window.closed</span>
+            <span class="tag"><span class="dot dot-amber"></span>council.degraded</span>
+            <span class="tag"><span class="dot dot-amber"></span>source.unavailable</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SDK -->
+      <div data-panel="sdk" class="mt-4 hidden">
+        <div class="row-between mb-3">
+          <div class="segmented">
+            <button class="active">Python</button>
+            <button>TypeScript</button>
+            <button>Go</button>
+          </div>
+          <a class="btn btn-ghost btn-sm">Full reference<i data-icon="extlink"></i></a>
+        </div>
+        <div class="code-head"><span>quickstart.py</span><span class="btn-icon sm" data-copy="from veritas import Veritas"><i data-icon="copy"></i></span></div>
+        <pre class="code"><span class="k">from</span> veritas <span class="k">import</span> Veritas
+
+client = Veritas(api_key=<span class="s">"vk_live_8f…2a91"</span>)
+
+<span class="c"># create a market</span>
+market = client.markets.create(
+    question=<span class="s">"Did BTC close above $100k on 2026-05-20?"</span>,
+    primary_authority=<span class="s">"coinmarketcap.com"</span>,
+    threshold=<span class="n">0.90</span>,
+    chains=[<span class="s">"arbitrum"</span>, <span class="s">"base"</span>],
+)
+
+<span class="c"># read a resolution + its full reasoning</span>
+res = client.resolutions.get(<span class="s">"R-4471"</span>)
+<span class="f">print</span>(res.verdict, res.confidence)   <span class="c"># "YES" 0.942</span>
+<span class="f">print</span>(res.ipfs_report)               <span class="c"># full council record</span></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
