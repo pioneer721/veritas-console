@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veritas · Council Configuration</title>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+</head>
+<body data-page="council" data-crumb="Council">
+  <div class="page-inner" style="max-width:1000px">
+
+    <div class="page-head">
+      <div class="row-between">
+        <div>
+          <h1 class="page-title">Council Configuration</h1>
+          <p class="page-sub">How the tiered consensus resolves and escalates · workspace defaults</p>
+        </div>
+        <button class="btn btn-primary"><i data-icon="check"></i>Save changes</button>
+      </div>
+    </div>
+
+    <!-- Tier overview -->
+    <div class="flow mb-5">
+      <div class="flow-stage">
+        <div class="fs-tier"><span class="eyebrow">Standard</span><span class="badge-n">3</span></div>
+        <p class="fs-sm t-2">Three models (roster ranks 2–4) resolve the question. A <b class="t-1">unanimous</b> verdict publishes immediately.</p>
+      </div>
+      <div class="flow-conn"><span class="fc-arrow"><i data-icon="arrowright"></i></span><span class="fc-label">if not unanimous</span></div>
+      <div class="flow-stage">
+        <div class="fs-tier"><span class="eyebrow">Escalation</span><span class="badge-n">9</span></div>
+        <p class="fs-sm t-2">The pool expands to nine models (ranks 2–10) for an independent re-evaluation.</p>
+      </div>
+      <div class="flow-conn"><span class="fc-arrow"><i data-icon="arrowright"></i></span><span class="fc-label">finalize</span></div>
+      <div class="flow-stage tenth">
+        <div class="fs-tier"><span class="eyebrow">Tenth Man</span><span class="badge-n">1</span></div>
+        <p class="fs-sm t-2">The smartest reserved model challenges the consensus and casts the final, binding decision.</p>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="col gap-5">
+        <!-- Tiers config -->
+        <section class="card">
+          <div class="card-head"><div class="h3"><i data-icon="network"></i>Consensus tiers</div></div>
+          <div class="card-body col gap-5">
+            <div class="row-between">
+              <div><div class="fw-500">Standard panel size</div><div class="fs-xs t-3 mt-1">Models drawn from the top of the weekly roster.</div></div>
+              <select class="select" style="width:120px"><option>3 models</option><option>5 models</option></select>
+            </div>
+            <div class="divider"></div>
+            <div class="row-between">
+              <div><div class="fw-500">Standard pass rule</div><div class="fs-xs t-3 mt-1">What the standard panel must reach to skip escalation.</div></div>
+              <select class="select" style="width:160px"><option>Unanimous</option><option>Supermajority (≥80%)</option></select>
+            </div>
+            <div class="divider"></div>
+            <div class="row-between">
+              <div><div class="fw-500">Auto-escalate on disagreement</div><div class="fs-xs t-3 mt-1">Expand to the 9-model pool when the standard panel splits.</div></div>
+              <label class="switch"><input type="checkbox" checked><span class="track"></span><span class="thumb"></span></label>
+            </div>
+            <div class="divider"></div>
+            <div class="row-between">
+              <div><div class="fw-500">Escalation pool size</div><div class="fs-xs t-3 mt-1">Roster ranks 2–10 (the tenth man is reserved).</div></div>
+              <span class="metric-inline"><span class="mv">9</span><span class="t-3 fs-sm">models</span></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tenth man -->
+        <section class="tenthman">
+          <div class="row gap-3 mb-3"><span class="tenthman-badge"><i data-icon="shield"></i>Tenth Man</span><span class="ml-auto"><label class="switch"><input type="checkbox" checked><span class="track"></span><span class="thumb"></span></label></span></div>
+          <p class="context-prose mb-4">During escalation, the single highest-ranked model is held in reserve and never votes with the pool. It then critically reviews the pool's consensus — challenging assumptions, testing the strongest dissent against the criteria — and casts the final, binding decision. This prevents the best model from anchoring the crowd.</p>
+          <div class="row-between">
+            <div><div class="fw-500 fs-sm">Tenth-man selection</div><div class="fs-xs t-3 mt-1">Automatically the rank-1 model on the weekly roster.</div></div>
+            <span class="row gap-2"><span class="model-avatar" style="width:22px;height:22px;font-size:9px">G5</span><span class="fw-500 fs-sm">GPT-5.5 (xhigh)</span></span>
+          </div>
+        </section>
+
+        <!-- Threshold + anti-manip -->
+        <section class="card">
+          <div class="card-head"><div class="h3"><i data-icon="target"></i>Confidence &amp; integrity</div></div>
+          <div class="card-body col gap-5">
+            <div class="field">
+              <div class="row-between"><label class="field-label">Default confidence threshold</label><span class="metric-inline"><span class="mv t-accent" id="thr">90%</span></span></div>
+              <div class="slider"><input type="range" min="70" max="99" value="90" data-output="#thr" data-suffix="%" /></div>
+              <label class="check mt-2"><input type="checkbox" checked><span class="box"><i data-icon="check"></i></span>Allow markets to override the default threshold</label>
+            </div>
+            <div class="divider"></div>
+            <div class="row-between">
+              <div><div class="fw-500">Adversarial source detection</div><div class="fs-xs t-3 mt-1">Flag sources first published within 2h of the resolution trigger.</div></div>
+              <label class="switch"><input type="checkbox" checked><span class="track"></span><span class="thumb"></span></label>
+            </div>
+            <div class="field">
+              <div class="row-between"><label class="field-label">Minimum source-independence score</label><span class="mv" id="ind">0.75</span></div>
+              <div class="slider"><input type="range" min="50" max="95" value="75" data-output="#ind" data-suffix="" /></div>
+            </div>
+            <div class="field">
+              <label class="field-label">Recency weighting</label>
+              <select class="select" style="max-width:300px"><option>Content older than 72h weighted 0.7×</option><option>No recency penalty</option><option>Older than 24h weighted 0.5×</option></select>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="col gap-5">
+        <section class="card card-pad">
+          <div class="row-between mb-4"><div class="eyebrow">Active roster</div><span class="pill pill-yes">10 online</span></div>
+          <p class="fs-xs t-3 mb-4">Models are auto-selected weekly by the selection oracle — not configured by hand.</p>
+          <div class="col gap-3">
+            <div class="row-between"><span class="row gap-2"><span class="role-tag role-tenth"><i data-icon="shield"></i>Tenth</span></span><span class="fs-sm t-2">GPT-5.5 (xhigh)</span></div>
+            <div class="row-between"><span class="role-tag role-standard">Standard 3</span><span class="fs-sm t-2">Opus · Gemini 3.1 · Grok 4.3</span></div>
+            <div class="row-between"><span class="role-tag role-escalation">Escalation 9</span><span class="fs-sm t-2">ranks 2–10</span></div>
+          </div>
+          <a class="btn btn-secondary btn-block btn-sm mt-4" href="roster.html"><i data-icon="cpu"></i>View weekly roster</a>
+        </section>
+
+        <section class="card card-pad" data-basis-group>
+          <div class="eyebrow mb-3">If the tenth man can't resolve</div>
+          <p class="fs-xs t-3 mb-4">A rare fallback when escalation + tenth man stays below threshold.</p>
+          <div class="basis-list">
+            <div class="basis-opt sel"><span class="basis-radio"></span><span class="basis-text">Mark UNRESOLVABLE, refund bonds</span></div>
+            <div class="basis-opt"><span class="basis-radio"></span><span class="basis-text">Extend window 6h and retry</span></div>
+            <div class="basis-opt"><span class="basis-radio"></span><span class="basis-text">Escalate to human expert panel</span></div>
+          </div>
+        </section>
+
+        <div class="banner info"><i data-icon="info"></i><div class="fs-xs">Prompts and orchestration are managed by Veritas and not user-editable — this keeps every resolution comparable across markets and weeks.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
