@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veritas · Disputes</title>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+</head>
+<body data-page="disputes" data-crumb="Disputes">
+  <div class="page-inner">
+
+    <div class="page-head">
+      <div class="row-between">
+        <div>
+          <h1 class="page-title">Disputes</h1>
+          <p class="page-sub">Challenge a resolution with evidence — not stake</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Positioning banner -->
+    <div class="banner violet mb-5">
+      <i data-icon="scale"></i>
+      <div><b>Disputes are won with evidence, not tokens.</b> Unlike stake-weighted oracles, a Veritas challenge triggers a focused re-evaluation of the council against your counter-evidence. If the verdict flips, your bond is returned with a reward. If it stands, the bond is forfeited.</div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-4 mb-5">
+      <div class="card card-pad"><div class="stat"><span class="stat-label">Open disputes</span><span class="stat-value">3</span></div></div>
+      <div class="card card-pad"><div class="stat"><span class="stat-label">Avg re-evaluation</span><span class="stat-value">3<span style="font-size:16px" class="t-3">m</span> 48<span style="font-size:16px" class="t-3">s</span></span></div></div>
+      <div class="card card-pad"><div class="stat"><span class="stat-label">Uphold rate</span><span class="stat-value">11.2%</span><span class="stat-delta up"><i data-icon="check"></i>healthy band</span></div></div>
+      <div class="card card-pad"><div class="stat"><span class="stat-label">My disputes</span><span class="stat-value">2</span><span class="stat-delta flat">1 upheld · 1 rejected</span></div></div>
+    </div>
+
+    <div class="split-wide">
+      <!-- LEFT: dispute lists -->
+      <div class="col gap-5">
+        <section class="card">
+          <div class="card-head"><div class="h3"><i data-icon="scale"></i>Open Disputes</div><span class="fs-xs t-3">network-wide</span></div>
+          <table class="table table-clickable">
+            <thead><tr><th>ID</th><th style="width:40%">Question</th><th>Basis</th><th>Status</th><th>Expires</th></tr></thead>
+            <tbody>
+              <tr onclick="location.href='dispute-detail.html'">
+                <td class="mono fs-sm">D-4441</td>
+                <td><div class="truncate" style="max-width:280px">Were Tornado Cash sanctions lifted before May 2026?</div></td>
+                <td><span class="fs-xs t-2">Verdict wrong</span></td>
+                <td><span class="pill pill-violet"><span class="dot dot-violet dot-live"></span>Re-evaluating</span></td>
+                <td class="fs-sm t-amber">58m</td>
+              </tr>
+              <tr onclick="location.href='dispute-detail.html'">
+                <td class="mono fs-sm">D-4438</td>
+                <td><div class="truncate" style="max-width:280px">Did Argentina beat Brazil in the June 2026 qualifier?</div></td>
+                <td><span class="fs-xs t-2">Source excluded</span></td>
+                <td><span class="pill pill-amber"><i data-icon="file"></i>Evidence needed</span></td>
+                <td class="fs-sm t-3">2h 14m</td>
+              </tr>
+              <tr onclick="location.href='dispute-detail.html'">
+                <td class="mono fs-sm">D-4429</td>
+                <td><div class="truncate" style="max-width:280px">Did Tesla deliver 500k vehicles in Q1 2026?</div></td>
+                <td><span class="fs-xs t-2">Criteria misread</span></td>
+                <td><span class="pill pill-accent"><span class="dot dot-accent dot-live"></span>Under review</span></td>
+                <td class="fs-sm t-3">3h 01m</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><div class="h3"><i data-icon="user"></i>My Disputes</div></div>
+          <table class="table">
+            <thead><tr><th>ID</th><th style="width:42%">Question</th><th>Outcome</th><th class="num">Bond</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="mono fs-sm">D-4312</td>
+                <td><div class="truncate" style="max-width:300px">Did the Fed cut rates at its March 2026 meeting?</div></td>
+                <td><span class="pill pill-yes"><i data-icon="shieldcheck"></i>Upheld</span></td>
+                <td class="num t-yes fw-600">+$112.50</td>
+              </tr>
+              <tr>
+                <td class="mono fs-sm">D-4201</td>
+                <td><div class="truncate" style="max-width:300px">Will Uniswap v5 launch in Q1 2026?</div></td>
+                <td><span class="pill pill-no"><i data-icon="x"></i>Rejected</span></td>
+                <td class="num t-no fw-600">−$50.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+      <!-- RIGHT: submit dispute -->
+      <div>
+        <section class="card" data-basis-group>
+          <div class="card-head"><div class="h3"><i data-icon="flag"></i>Submit a dispute</div></div>
+          <div class="card-body">
+            <div class="field mb-4">
+              <label class="field-label">Resolution to challenge</label>
+              <select class="select"><option>R-4461 · Tornado Cash sanctions… (NO)</option><option>R-4457 · EU AI Act fines… (NO)</option></select>
+            </div>
+
+            <label class="field-label mb-3">Basis of dispute</label>
+            <div class="basis-list mb-4">
+              <div class="basis-opt sel"><span class="basis-radio"></span><span class="basis-text">The verdict is factually wrong</span></div>
+              <div class="basis-opt"><span class="basis-radio"></span><span class="basis-text">A key source was wrongly excluded</span></div>
+              <div class="basis-opt"><span class="basis-radio"></span><span class="basis-text">A source was wrongly included</span></div>
+              <div class="basis-opt"><span class="basis-radio"></span><span class="basis-text">Resolution criteria misinterpreted</span></div>
+              <div class="basis-opt"><span class="basis-radio"></span><span class="basis-text">New evidence now available</span></div>
+            </div>
+
+            <div class="field mb-4">
+              <label class="field-label">Counter-evidence</label>
+              <div class="copy-field mb-2"><code class="t-2">https://home.treasury.gov/…/press</code><span class="cf-btn"><i data-icon="check" class="t-yes"></i></span></div>
+              <span class="field-hint"><span class="t-yes">Verified</span> · treasury.gov domain confirmed · summary auto-extracted</span>
+            </div>
+
+            <div class="field mb-4">
+              <label class="field-label">Your claim</label>
+              <textarea class="textarea" rows="3" placeholder="Explain precisely why the verdict is wrong…">The OFAC press release dated Mar 2026 relisted the entity; the council relied on a superseded delisting notice.</textarea>
+            </div>
+
+            <div class="banner warn mb-4" style="padding:11px 13px"><i data-icon="wallet"></i><div class="fs-xs">Bond required: <b>$50.00</b> — returned with reward if upheld, forfeited if rejected.</div></div>
+            <button class="btn btn-primary btn-block"><i data-icon="send"></i>Submit dispute &amp; post bond</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
