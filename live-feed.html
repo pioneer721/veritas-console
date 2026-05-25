@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veritas · Live Feed</title>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+</head>
+<body data-page="live-feed" data-crumb="Live Feed">
+  <div class="page-inner">
+
+    <div class="page-head">
+      <div class="row-between">
+        <div>
+          <h1 class="page-title">Live Feed</h1>
+          <p class="page-sub">Every resolution moving through the network, in real time</p>
+        </div>
+        <div class="row gap-2">
+          <span class="pill pill-accent"><span class="dot dot-accent dot-live"></span>12 active</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="card card-pad mb-5">
+      <div class="row gap-4 wrap">
+        <div class="segmented">
+          <button class="active">All</button>
+          <button>Research</button>
+          <button>Deliberating</button>
+          <button>Finalizing</button>
+          <button>Disputed</button>
+        </div>
+        <div class="divider-v" style="height:28px"></div>
+        <select class="select" style="width:140px">
+          <option>All chains</option><option>Ethereum</option><option>Base</option><option>Arbitrum</option>
+        </select>
+        <select class="select" style="width:150px">
+          <option>All market types</option><option>Macro</option><option>Sports</option><option>Governance</option><option>DeFi</option>
+        </select>
+        <div class="row gap-3 grow" style="max-width:280px;min-width:200px">
+          <span class="fs-xs t-3 nowrap">Min confidence</span>
+          <div class="slider grow"><input type="range" min="60" max="100" value="60" data-output="#cf-out" data-suffix="%" /></div>
+          <span class="fs-sm fw-600 tnum" id="cf-out" style="width:38px">60%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feed -->
+    <!-- Card 1: deliberating (expanded) -->
+    <div class="res-card">
+      <div class="res-card-top" data-expand>
+        <span class="dot dot-accent dot-live" style="margin-top:6px"></span>
+        <div class="grow" style="min-width:0">
+          <div class="row gap-3"><span class="pill pill-accent"><i data-icon="cpu"></i>Deliberating</span><span class="fs-xs t-3">stage 4 of 6</span></div>
+          <div class="res-q mt-2">Did Manchester City win the 2025–26 Premier League title?</div>
+          <div class="res-meta">
+            <span class="mi"><i data-icon="user"></i>0x3f9a…d1b2</span>
+            <span class="mi"><i data-icon="layers"></i>Arbitrum</span>
+            <span class="mi"><i data-icon="clock"></i>Resolving now · est. ~2m</span>
+            <span class="mi mono">R-4474</span>
+          </div>
+        </div>
+        <div class="stream-conf" style="margin-right:8px">
+          <div class="conf-track"><div class="conf-fill yes" data-value="96"></div></div>
+          <div class="conf-meta mt-1"><span class="t-3">YES</span><span class="t-yes fw-600">96%</span></div>
+        </div>
+        <span class="btn-icon sm" data-expand-chev style="transition:transform var(--t-mid);transform:rotate(180deg)"><i data-icon="chevdown"></i></span>
+      </div>
+      <div class="res-card-expand">
+        <div class="pipe-strip">
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Research</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Scraping</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Bias check</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step active"><span class="ps-dot"><i data-icon="cpu"></i></span><span class="ps-label">Council</span></div>
+          <div class="pipe-conn"></div>
+          <div class="pipe-step"><span class="ps-dot"><i data-icon="box"></i></span><span class="ps-label">Publish</span></div>
+        </div>
+        <div class="row-between mt-4 wrap gap-4">
+          <div class="row gap-4 wrap center">
+            <span class="role-tag role-standard"><i data-icon="cpu"></i>Standard · 3/3</span>
+            <span class="model-mini"><span class="dot dot-yes"></span><span class="mm-name">Opus 4.7</span><span class="mm-val t-yes">YES 97%</span></span>
+            <span class="model-mini"><span class="dot dot-yes"></span><span class="mm-name">Gemini 3.1</span><span class="mm-val t-yes">YES 96%</span></span>
+            <span class="model-mini"><span class="dot dot-yes"></span><span class="mm-name">Grok 4.3</span><span class="mm-val t-yes">YES 95%</span></span>
+          </div>
+          <a class="btn btn-secondary btn-sm" href="resolution-detail.html">View full resolution<i data-icon="arrowright"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: deliberating w/ outlier (collapsed) -->
+    <div class="res-card">
+      <div class="res-card-top" data-expand>
+        <span class="dot dot-accent dot-live" style="margin-top:6px"></span>
+        <div class="grow" style="min-width:0">
+          <div class="row gap-3"><span class="pill pill-violet"><i data-icon="network"></i>Escalated</span><span class="fs-xs t-violet">tenth man reviewing</span></div>
+          <div class="res-q mt-2">Did ETH close above $4,000 on May 24, 2026?</div>
+          <div class="res-meta">
+            <span class="mi"><i data-icon="user"></i>0x3f9a…d1b2</span>
+            <span class="mi"><i data-icon="layers"></i>Base</span>
+            <span class="mi"><i data-icon="clock"></i>Resolving now</span>
+            <span class="mi mono">R-4473</span>
+          </div>
+        </div>
+        <div class="stream-conf" style="margin-right:8px">
+          <div class="conf-track"><div class="conf-fill yes" data-value="84"></div></div>
+          <div class="conf-meta mt-1"><span class="t-3">YES</span><span class="t-yes fw-600">84%</span></div>
+        </div>
+        <span class="btn-icon sm" data-expand-chev style="transition:transform var(--t-mid)"><i data-icon="chevdown"></i></span>
+      </div>
+      <div class="res-card-expand hidden">
+        <div class="pipe-strip">
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Research</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Scraping</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Bias check</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step active"><span class="ps-dot"><i data-icon="cpu"></i></span><span class="ps-label">Council</span></div>
+          <div class="pipe-conn"></div>
+          <div class="pipe-step"><span class="ps-dot"><i data-icon="box"></i></span><span class="ps-label">Publish</span></div>
+        </div>
+        <div class="banner violet mt-4"><i data-icon="network"></i><div><b>Standard panel split 2–1 — escalated to 9 models.</b> Gemini 3.1 Pro dissented, weighting an intraday wick below $4,000 rather than the official daily close. The tenth man, GPT-5.5 (xhigh), is now reviewing the dissent before finalizing.</div></div>
+        <div class="row-between mt-4 wrap gap-4">
+          <div class="row gap-4 wrap center">
+            <span class="role-tag role-standard"><i data-icon="cpu"></i>Standard · 2–1</span>
+            <span class="model-mini"><span class="dot dot-yes"></span><span class="mm-name">Opus 4.7</span><span class="mm-val t-yes">YES 91%</span></span>
+            <span class="model-mini"><span class="dot dot-no"></span><span class="mm-name t-no">Gemini 3.1</span><span class="mm-val t-no">NO 44%</span></span>
+            <span class="model-mini"><span class="dot dot-yes"></span><span class="mm-name">Grok 4.3</span><span class="mm-val t-yes">YES 86%</span></span>
+          </div>
+          <a class="btn btn-secondary btn-sm" href="resolution-detail.html">View full resolution<i data-icon="arrowright"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: evidence collection (collapsed) -->
+    <div class="res-card">
+      <div class="res-card-top" data-expand>
+        <span class="dot dot-amber dot-live" style="margin-top:6px"></span>
+        <div class="grow" style="min-width:0">
+          <div class="row gap-3"><span class="pill pill-amber"><i data-icon="scan"></i>Evidence collection</span><span class="fs-xs t-3">stage 2 of 6</span></div>
+          <div class="res-q mt-2">Did Coinbase report Q1 2026 revenue above $1.5B?</div>
+          <div class="res-meta">
+            <span class="mi"><i data-icon="user"></i>0x91c4…7a02</span>
+            <span class="mi"><i data-icon="layers"></i>Base</span>
+            <span class="mi"><i data-icon="clock"></i>Started 38s ago</span>
+            <span class="mi mono">R-4472</span>
+          </div>
+        </div>
+        <div class="stream-conf" style="margin-right:8px">
+          <div class="conf-track"><div class="conf-fill" data-value="22" style="background:var(--text-4)"></div></div>
+          <div class="conf-meta mt-1"><span class="t-3">pending</span><span class="t-3">—</span></div>
+        </div>
+        <span class="btn-icon sm" data-expand-chev style="transition:transform var(--t-mid)"><i data-icon="chevdown"></i></span>
+      </div>
+      <div class="res-card-expand hidden">
+        <div class="pipe-strip">
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Research</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step active"><span class="ps-dot"><i data-icon="scan"></i></span><span class="ps-label">Scraping</span></div>
+          <div class="pipe-conn"></div>
+          <div class="pipe-step"><span class="ps-dot"><i data-icon="shield"></i></span><span class="ps-label">Bias check</span></div>
+          <div class="pipe-conn"></div>
+          <div class="pipe-step"><span class="ps-dot"><i data-icon="cpu"></i></span><span class="ps-label">Council</span></div>
+          <div class="pipe-conn"></div>
+          <div class="pipe-step"><span class="ps-dot"><i data-icon="box"></i></span><span class="ps-label">Publish</span></div>
+        </div>
+        <p class="fs-sm t-2 mt-4">Retrieving Q1 2026 earnings release from <span class="mono t-2">investor.coinbase.com</span> and corroborating filings from SEC EDGAR. 4 sources collected so far.</p>
+      </div>
+    </div>
+
+    <!-- Card 4: finalizing -->
+    <div class="res-card">
+      <div class="res-card-top" data-expand>
+        <span class="dot dot-accent dot-live" style="margin-top:6px"></span>
+        <div class="grow" style="min-width:0">
+          <div class="row gap-3"><span class="pill pill-accent"><i data-icon="box"></i>Finalizing</span><span class="fs-xs t-3">publishing on-chain</span></div>
+          <div class="res-q mt-2">Did US CPI for April 2026 come in below 3.5%?</div>
+          <div class="res-meta">
+            <span class="mi"><i data-icon="user"></i>0x3f9a…d1b2</span>
+            <span class="mi"><i data-icon="layers"></i>Ethereum</span>
+            <span class="mi"><i data-icon="clock"></i>5m 41s</span>
+            <span class="mi mono">R-4470</span>
+          </div>
+        </div>
+        <div class="stream-conf" style="margin-right:8px">
+          <div class="conf-track"><div class="conf-fill no" data-value="90"></div></div>
+          <div class="conf-meta mt-1"><span class="t-3">NO</span><span class="t-no fw-600">90%</span></div>
+        </div>
+        <span class="btn-icon sm" data-expand-chev style="transition:transform var(--t-mid)"><i data-icon="chevdown"></i></span>
+      </div>
+      <div class="res-card-expand hidden">
+        <div class="pipe-strip">
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Research</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Scraping</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Bias check</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step done"><span class="ps-dot"><i data-icon="check"></i></span><span class="ps-label">Council</span></div>
+          <div class="pipe-conn filled"></div>
+          <div class="pipe-step active"><span class="ps-dot"><i data-icon="box"></i></span><span class="ps-label">Publish</span></div>
+        </div>
+        <p class="fs-sm t-2 mt-4">Council reached <b class="t-1">NO at 90.1%</b> — BLS reported April CPI at 3.6% YoY, above the 3.5% threshold. Writing verdict to Ethereum via LayerZero.</p>
+      </div>
+    </div>
+
+    <!-- Card 5: resolved -->
+    <a class="res-card" href="resolution-detail.html" style="display:block">
+      <div class="res-card-top">
+        <span class="dot dot-yes" style="margin-top:6px"></span>
+        <div class="grow" style="min-width:0">
+          <div class="row gap-3"><span class="pill pill-yes"><i data-icon="check"></i>Resolved · YES</span><span class="fs-xs t-3">No challenge</span></div>
+          <div class="res-q mt-2">Did the Federal Reserve cut interest rates at its May 2026 FOMC meeting?</div>
+          <div class="res-meta">
+            <span class="mi"><i data-icon="user"></i>0x3f9a…d1b2</span>
+            <span class="mi"><i data-icon="layers"></i>Arbitrum</span>
+            <span class="mi"><i data-icon="check"></i>Finalized May 8, 14:32 UTC</span>
+            <span class="mi mono">R-4471</span>
+          </div>
+        </div>
+        <div class="stream-conf" style="margin-right:8px">
+          <div class="conf-track"><div class="conf-fill yes" data-value="94"></div></div>
+          <div class="conf-meta mt-1"><span class="t-3">YES</span><span class="t-yes fw-600">94.2%</span></div>
+        </div>
+        <span class="btn-icon sm"><i data-icon="chevright"></i></span>
+      </div>
+    </a>
+
+    <!-- Card 6: disputed -->
+    <a class="res-card" href="dispute-detail.html" style="display:block">
+      <div class="res-card-top">
+        <span class="dot dot-violet dot-live" style="margin-top:6px"></span>
+        <div class="grow" style="min-width:0">
+          <div class="row gap-3"><span class="pill pill-violet"><i data-icon="scale"></i>Under dispute</span><span class="fs-xs t-violet">re-evaluating</span></div>
+          <div class="res-q mt-2">Were Tornado Cash sanctions lifted before May 2026?</div>
+          <div class="res-meta">
+            <span class="mi"><i data-icon="user"></i>0x77ab…0c41</span>
+            <span class="mi"><i data-icon="layers"></i>Ethereum</span>
+            <span class="mi"><i data-icon="scale"></i>Dispute #D-4441</span>
+            <span class="mi mono">R-4461</span>
+          </div>
+        </div>
+        <div class="stream-conf" style="margin-right:8px">
+          <div class="conf-track"><div class="conf-fill no" data-value="88"></div></div>
+          <div class="conf-meta mt-1"><span class="t-3">NO</span><span class="t-no fw-600">88.4%</span></div>
+        </div>
+        <span class="btn-icon sm"><i data-icon="chevright"></i></span>
+      </div>
+    </a>
+
+  </div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
