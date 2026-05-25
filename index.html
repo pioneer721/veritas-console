@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veritas · Command Center</title>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+</head>
+<body data-page="command" data-crumb="Command Center">
+  <div class="page-inner">
+
+    <!-- Page head -->
+    <div class="page-head">
+      <div class="row-between">
+        <div>
+          <h1 class="page-title">Command Center</h1>
+          <p class="page-sub">Live state of the oracle network · Mainnet</p>
+        </div>
+        <div class="row gap-2">
+          <div class="segmented">
+            <button class="active">24h</button>
+            <button>7d</button>
+            <button>30d</button>
+          </div>
+          <button class="btn-icon btn-secondary" title="Refresh"><i data-icon="refresh"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- System health bar -->
+    <div class="health mb-6">
+      <div class="health-cell">
+        <div class="hc-label"><i data-icon="network" data-size="13"></i>Council Status</div>
+        <div class="hc-value"><span class="dot dot-yes dot-live"></span>Nominal</div>
+        <div class="hc-sub">5 of 5 models online</div>
+      </div>
+      <div class="health-cell">
+        <div class="hc-label"><i data-icon="activity" data-size="13"></i>Active Resolutions</div>
+        <div class="hc-value">12</div>
+        <div class="spark">
+          <i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:66%"></i>
+          <i style="height:58%"></i><i style="height:80%"></i><i style="height:62%"></i><i style="height:94%"></i>
+          <i style="height:72%"></i><i style="height:100%"></i>
+        </div>
+      </div>
+      <div class="health-cell">
+        <div class="hc-label"><i data-icon="scale" data-size="13"></i>Pending Disputes</div>
+        <div class="hc-value"><span class="dot dot-amber"></span>3</div>
+        <div class="hc-sub t-amber">1 expiring in &lt; 1h</div>
+      </div>
+      <div class="health-cell">
+        <div class="hc-label"><i data-icon="clock" data-size="13"></i>Avg Resolution Time</div>
+        <div class="hc-value">4<span class="t-3" style="font-size:15px">m</span> 12<span class="t-3" style="font-size:15px">s</span></div>
+        <div class="hc-sub">median · last 24h</div>
+      </div>
+      <div class="health-cell">
+        <div class="hc-label"><i data-icon="box" data-size="13"></i>Chain Status</div>
+        <div class="hc-value" style="font-size:14px;font-weight:500">Operational</div>
+        <div class="chain-dots">
+          <span class="cred high tip" data-tip="Ethereum · confirmed"><span class="cd"></span></span>
+          <span class="cred high tip" data-tip="Base · confirmed"><span class="cd"></span></span>
+          <span class="cred med tip" data-tip="Arbitrum · congested"><span class="cd"></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main split -->
+    <div class="split-wide">
+      <!-- LEFT -->
+      <div class="col gap-5">
+
+        <!-- Live resolution stream -->
+        <section class="card">
+          <div class="card-head">
+            <div class="h3"><i data-icon="activity"></i>Live Resolution Stream</div>
+            <a class="btn btn-ghost btn-sm" href="live-feed.html">Open feed<i data-icon="arrowright"></i></a>
+          </div>
+          <div>
+            <a class="stream-row" href="resolution-detail.html">
+              <span class="dot dot-accent dot-live"></span>
+              <div class="grow" style="min-width:0">
+                <div class="stream-q truncate">Did Manchester City win the 2025–26 Premier League title?</div>
+                <div class="res-meta">
+                  <span class="mi"><i data-icon="cpu"></i>Council deliberating</span>
+                  <span class="mi"><i data-icon="layers"></i>Arbitrum</span>
+                  <span class="mi">5 of 5 agree</span>
+                </div>
+              </div>
+              <div class="stream-conf">
+                <div class="conf-track"><div class="conf-fill yes" data-value="96"></div></div>
+                <div class="conf-meta mt-1"><span class="t-3">YES</span><span class="t-yes fw-600">96%</span></div>
+              </div>
+            </a>
+            <a class="stream-row" href="resolution-detail.html">
+              <span class="dot dot-accent dot-live"></span>
+              <div class="grow" style="min-width:0">
+                <div class="stream-q truncate">Did ETH close above $4,000 on May 24, 2026?</div>
+                <div class="res-meta">
+                  <span class="mi"><i data-icon="cpu"></i>Council deliberating</span>
+                  <span class="mi"><i data-icon="layers"></i>Base</span>
+                  <span class="mi t-amber">4 of 5 · 1 outlier</span>
+                </div>
+              </div>
+              <div class="stream-conf">
+                <div class="conf-track"><div class="conf-fill yes" data-value="84"></div></div>
+                <div class="conf-meta mt-1"><span class="t-3">YES</span><span class="t-yes fw-600">84%</span></div>
+              </div>
+            </a>
+            <a class="stream-row" href="resolution-detail.html">
+              <span class="dot dot-amber dot-live"></span>
+              <div class="grow" style="min-width:0">
+                <div class="stream-q truncate">Did US CPI for April 2026 come in below 3.5%?</div>
+                <div class="res-meta">
+                  <span class="mi"><i data-icon="file"></i>Report synthesis</span>
+                  <span class="mi"><i data-icon="layers"></i>Ethereum</span>
+                  <span class="mi">stage 4 of 6</span>
+                </div>
+              </div>
+              <div class="stream-conf">
+                <div class="conf-track"><div class="conf-fill" data-value="40" style="background:var(--text-4)"></div></div>
+                <div class="conf-meta mt-1"><span class="t-3">pending</span><span class="t-3">—</span></div>
+              </div>
+            </a>
+            <a class="stream-row" href="resolution-detail.html">
+              <span class="dot dot-amber dot-live"></span>
+              <div class="grow" style="min-width:0">
+                <div class="stream-q truncate">Did Coinbase Q1 2026 revenue exceed $1.5B?</div>
+                <div class="res-meta">
+                  <span class="mi"><i data-icon="scan"></i>Evidence collection</span>
+                  <span class="mi"><i data-icon="layers"></i>Base</span>
+                  <span class="mi">stage 2 of 6</span>
+                </div>
+              </div>
+              <div class="stream-conf">
+                <div class="conf-track"><div class="conf-fill" data-value="20" style="background:var(--text-4)"></div></div>
+                <div class="conf-meta mt-1"><span class="t-3">pending</span><span class="t-3">—</span></div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Recent resolutions -->
+        <section class="card">
+          <div class="card-head">
+            <div class="h3"><i data-icon="circlecheck"></i>Recent Resolutions</div>
+            <span class="t-3 fs-xs">finalized · network-wide</span>
+          </div>
+          <table class="table table-clickable">
+            <thead>
+              <tr>
+                <th style="width:42%">Question</th>
+                <th>Verdict</th>
+                <th class="num">Confidence</th>
+                <th>Chain</th>
+                <th>Challenge</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr onclick="location.href='resolution-detail.html'">
+                <td><div class="truncate" style="max-width:340px">Did the Federal Reserve cut rates at its May 2026 FOMC meeting?</div><div class="mono t-3 fs-micro">R-4471</div></td>
+                <td><span class="pill pill-yes"><i data-icon="check"></i>YES</span></td>
+                <td class="num t-yes fw-600">94.2%</td>
+                <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Arbitrum</span></td>
+                <td><span class="t-3 fs-xs">No challenge</span></td>
+              </tr>
+              <tr onclick="location.href='resolution-detail.html'">
+                <td><div class="truncate" style="max-width:340px">Did the SEC approve a spot Solana ETF in 2026?</div><div class="mono t-3 fs-micro">R-4468</div></td>
+                <td><span class="pill pill-yes"><i data-icon="check"></i>YES</span></td>
+                <td class="num t-yes fw-600">96.1%</td>
+                <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Ethereum</span></td>
+                <td><span class="t-3 fs-xs">No challenge</span></td>
+              </tr>
+              <tr onclick="location.href='resolution-detail.html'">
+                <td><div class="truncate" style="max-width:340px">Did Bitcoin exceed $100,000 on May 20, 2026?</div><div class="mono t-3 fs-micro">R-4465</div></td>
+                <td><span class="pill pill-yes"><i data-icon="check"></i>YES</span></td>
+                <td class="num t-yes fw-600">92.8%</td>
+                <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Base</span></td>
+                <td><span class="t-3 fs-xs">No challenge</span></td>
+              </tr>
+              <tr onclick="location.href='dispute-detail.html'">
+                <td><div class="truncate" style="max-width:340px">Were Tornado Cash sanctions lifted before May 2026?</div><div class="mono t-3 fs-micro">R-4461</div></td>
+                <td><span class="pill pill-no"><i data-icon="x"></i>NO</span></td>
+                <td class="num t-no fw-600">88.4%</td>
+                <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Ethereum</span></td>
+                <td><span class="pill pill-violet"><i data-icon="shieldcheck"></i>Upheld</span></td>
+              </tr>
+              <tr onclick="location.href='resolution-detail.html'">
+                <td><div class="truncate" style="max-width:340px">Did EU AI Act fines begin in Q1 2026?</div><div class="mono t-3 fs-micro">R-4457</div></td>
+                <td><span class="pill pill-no"><i data-icon="x"></i>NO</span></td>
+                <td class="num t-no fw-600">90.2%</td>
+                <td><span class="row gap-2"><span class="cred med"><span class="cd"></span></span>Arbitrum</span></td>
+                <td><span class="t-3 fs-xs">No challenge</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="col gap-5">
+
+        <!-- Signature metric: dispute uphold rate -->
+        <section class="card card-pad">
+          <div class="row-between mb-4">
+            <div class="eyebrow">Dispute Uphold Rate</div>
+            <span class="tip" data-tip="Healthy band: 5–15%"><i data-icon="info" data-size="14" class="t-3"></i></span>
+          </div>
+          <div class="row gap-3" style="align-items:baseline">
+            <div class="display">11.2<span style="font-size:18px;font-weight:500" class="t-3">%</span></div>
+            <span class="pill pill-yes"><i data-icon="check"></i>Healthy</span>
+          </div>
+          <div class="mt-5">
+            <div class="band">
+              <span class="zone zone-low"></span><span class="zone zone-ok"></span><span class="zone zone-high"></span>
+              <span class="band-marker" style="left:11.2%"></span>
+            </div>
+            <div class="band-scale"><span>0%</span><span>5%</span><span>15%</span><span>30%+</span></div>
+          </div>
+          <p class="fs-xs t-3 mt-4 lh-snug">The council is corrected on roughly 1 in 9 challenges — high enough to prove the dispute path works, low enough to show the council is rarely wrong.</p>
+        </section>
+
+        <!-- Your markets -->
+        <section class="card">
+          <div class="card-head">
+            <div class="h3"><i data-icon="bookmark"></i>Your Markets</div>
+            <a class="btn btn-ghost btn-sm" href="markets.html">All<i data-icon="arrowright"></i></a>
+          </div>
+          <div>
+            <a class="list-row" href="resolution-detail.html">
+              <span class="dot dot-accent dot-live"></span>
+              <div class="grow" style="min-width:0">
+                <div class="list-title truncate">Did ETH close above $4,000 on May 24?</div>
+                <div class="list-meta">Resolving now · Base</div>
+              </div>
+              <span class="pill pill-accent">Live</span>
+            </a>
+            <a class="list-row" href="resolution-detail.html">
+              <span class="dot dot-accent dot-live"></span>
+              <div class="grow" style="min-width:0">
+                <div class="list-title truncate">Did Man City win the Premier League?</div>
+                <div class="list-meta">Resolving now · Arbitrum</div>
+              </div>
+              <span class="pill pill-accent">Live</span>
+            </a>
+            <a class="list-row" href="markets.html">
+              <span class="dot"></span>
+              <div class="grow" style="min-width:0">
+                <div class="list-title truncate">Will US Q2 2026 GDP grow above 2%?</div>
+                <div class="list-meta">Opens Jul 30 · Arbitrum</div>
+              </div>
+              <span class="pill pill-neutral">Scheduled</span>
+            </a>
+            <a class="list-row" href="markets.html">
+              <span class="dot"></span>
+              <div class="grow" style="min-width:0">
+                <div class="list-title truncate">Will Apple ship a foldable iPhone in 2026?</div>
+                <div class="list-meta">Opens Dec 31 · Ethereum</div>
+              </div>
+              <span class="pill pill-neutral">Scheduled</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Council snapshot -->
+        <section class="card card-pad">
+          <div class="row-between mb-4">
+            <div class="h3 row gap-2"><i data-icon="cpu" class="t-3"></i>Council</div>
+            <span class="pill pill-yes">10 online</span>
+          </div>
+          <div class="col gap-3">
+            <div class="row-between"><span class="row gap-2"><span class="model-avatar" style="width:20px;height:20px;font-size:8px">G5</span>GPT-5.5 (xhigh)</span><span class="role-tag role-tenth"><i data-icon="shield"></i>Tenth</span></div>
+            <div class="row-between"><span class="row gap-2"><span class="model-avatar" style="width:20px;height:20px;font-size:8px">Op</span>Claude Opus 4.7</span><span class="role-tag role-standard">Std</span></div>
+            <div class="row-between"><span class="row gap-2"><span class="model-avatar" style="width:20px;height:20px;font-size:8px">Ge</span>Gemini 3.1 Pro</span><span class="role-tag role-standard">Std</span></div>
+            <div class="row-between"><span class="row gap-2"><span class="model-avatar" style="width:20px;height:20px;font-size:8px">Gk</span>Grok 4.3 (high)</span><span class="role-tag role-standard">Std</span></div>
+            <div class="row-between"><span class="t-3 fs-sm" style="padding-left:28px">+ 6 in escalation pool</span><span class="dot dot-yes"></span></div>
+          </div>
+          <a class="btn btn-secondary btn-block btn-sm mt-5" href="roster.html"><i data-icon="cpu"></i>This week's roster</a>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
