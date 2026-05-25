@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veritas · Markets</title>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+</head>
+<body data-page="markets" data-crumb="Markets">
+  <div class="page-inner">
+
+    <div class="page-head">
+      <div class="row-between">
+        <div>
+          <h1 class="page-title">Markets</h1>
+          <p class="page-sub">Questions you've deployed to the Veritas oracle</p>
+        </div>
+        <a class="btn btn-primary" href="new-market.html"><i data-icon="plus"></i>New Market</a>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="grid grid-4 mb-5">
+      <div class="card card-pad"><div class="stat"><span class="stat-label">Total markets</span><span class="stat-value">28</span></div></div>
+      <div class="card card-pad"><div class="stat"><span class="stat-label">Live now</span><span class="stat-value t-accent">4</span></div></div>
+      <div class="card card-pad"><div class="stat"><span class="stat-label">Resolved</span><span class="stat-value">23</span><span class="stat-delta up"><i data-icon="trendup"></i>96.4% clean</span></div></div>
+      <div class="card card-pad"><div class="stat"><span class="stat-label">Disputed</span><span class="stat-value">1</span><span class="stat-delta flat">upheld original</span></div></div>
+    </div>
+
+    <!-- Controls -->
+    <div class="row-between mb-4 wrap gap-3">
+      <div class="segmented">
+        <button class="active"><i data-icon="bookmark"></i>My Markets</button>
+        <button><i data-icon="layoutgrid"></i>Explore All</button>
+      </div>
+      <div class="row gap-2">
+        <div class="topbar-search" style="width:220px"><div class="input-wrap"><i data-icon="search"></i><input class="input" style="height:34px" placeholder="Filter markets…" /></div></div>
+        <select class="select" style="width:130px"><option>All status</option><option>Live</option><option>Scheduled</option><option>Resolved</option><option>Disputed</option></select>
+      </div>
+    </div>
+
+    <!-- Markets table -->
+    <div class="card">
+      <table class="table table-clickable">
+        <thead><tr><th style="width:46%">Question</th><th>Status</th><th class="num">Confidence</th><th>Chain</th><th>Timeline</th><th></th></tr></thead>
+        <tbody>
+          <tr onclick="location.href='resolution-detail.html'">
+            <td><div class="fw-500">Did ETH close above $4,000 on May 24, 2026?</div><div class="mono t-3 fs-micro">R-4473 · DeFi</div></td>
+            <td><span class="pill pill-accent"><span class="dot dot-accent dot-live"></span>Live</span></td>
+            <td class="num t-yes fw-600">84%</td>
+            <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Base</span></td>
+            <td class="fs-sm t-3">Resolving now</td>
+            <td><i data-icon="chevright" class="t-4"></i></td>
+          </tr>
+          <tr onclick="location.href='resolution-detail.html'">
+            <td><div class="fw-500">Did Manchester City win the 2025–26 Premier League?</div><div class="mono t-3 fs-micro">R-4474 · Sports</div></td>
+            <td><span class="pill pill-accent"><span class="dot dot-accent dot-live"></span>Live</span></td>
+            <td class="num t-yes fw-600">96%</td>
+            <td><span class="row gap-2"><span class="cred med"><span class="cd"></span></span>Arbitrum</span></td>
+            <td class="fs-sm t-3">Resolving now</td>
+            <td><i data-icon="chevright" class="t-4"></i></td>
+          </tr>
+          <tr onclick="location.href='resolution-detail.html'">
+            <td><div class="fw-500">Did the Boston Celtics defeat the Knicks on May 18, 2026?</div><div class="mono t-3 fs-micro">R-4477 · Sports · verifies against nba.com</div></td>
+            <td><span class="pill pill-yes"><i data-icon="check"></i>Resolved · YES</span></td>
+            <td class="num t-yes fw-600">95.1%</td>
+            <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Base</span></td>
+            <td class="fs-sm t-3">May 18</td>
+            <td><i data-icon="chevright" class="t-4"></i></td>
+          </tr>
+          <tr onclick="location.href='new-market.html'">
+            <td><div class="fw-500">Will US Q2 2026 GDP grow above 2.0% annualized?</div><div class="mono t-3 fs-micro">R-4480 · Macro</div></td>
+            <td><span class="pill pill-neutral"><i data-icon="clock"></i>Scheduled</span></td>
+            <td class="num t-3">—</td>
+            <td><span class="row gap-2"><span class="cred med"><span class="cd"></span></span>Arbitrum</span></td>
+            <td class="fs-sm t-3">Opens Jul 30</td>
+            <td><i data-icon="chevright" class="t-4"></i></td>
+          </tr>
+          <tr onclick="location.href='new-market.html'">
+            <td><div class="fw-500">Will Apple ship a foldable iPhone in 2026?</div><div class="mono t-3 fs-micro">R-4481 · Tech</div></td>
+            <td><span class="pill pill-neutral"><i data-icon="clock"></i>Scheduled</span></td>
+            <td class="num t-3">—</td>
+            <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Ethereum</span></td>
+            <td class="fs-sm t-3">Opens Dec 31</td>
+            <td><i data-icon="chevright" class="t-4"></i></td>
+          </tr>
+          <tr onclick="location.href='resolution-detail.html'">
+            <td><div class="fw-500">Did the Federal Reserve cut rates at its May 2026 FOMC?</div><div class="mono t-3 fs-micro">R-4471 · Macro</div></td>
+            <td><span class="pill pill-yes"><i data-icon="check"></i>Resolved · YES</span></td>
+            <td class="num t-yes fw-600">94.2%</td>
+            <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Arbitrum</span></td>
+            <td class="fs-sm t-3">May 8</td>
+            <td><i data-icon="chevright" class="t-4"></i></td>
+          </tr>
+          <tr onclick="location.href='resolution-detail.html'">
+            <td><div class="fw-500">Did the SEC approve a spot Solana ETF in 2026?</div><div class="mono t-3 fs-micro">R-4468 · Regulatory</div></td>
+            <td><span class="pill pill-yes"><i data-icon="check"></i>Resolved · YES</span></td>
+            <td class="num t-yes fw-600">96.1%</td>
+            <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Ethereum</span></td>
+            <td class="fs-sm t-3">May 14</td>
+            <td><i data-icon="chevright" class="t-4"></i></td>
+          </tr>
+          <tr onclick="location.href='resolution-detail.html'">
+            <td><div class="fw-500">Did EU AI Act fines begin in Q1 2026?</div><div class="mono t-3 fs-micro">R-4457 · Regulatory</div></td>
+            <td><span class="pill pill-no"><i data-icon="x"></i>Resolved · NO</span></td>
+            <td class="num t-no fw-600">90.2%</td>
+            <td><span class="row gap-2"><span class="cred med"><span class="cd"></span></span>Arbitrum</span></td>
+            <td class="fs-sm t-3">Apr 30</td>
+            <td><i data-icon="chevright" class="t-4"></i></td>
+          </tr>
+          <tr onclick="location.href='dispute-detail.html'">
+            <td><div class="fw-500">Were Tornado Cash sanctions lifted before May 2026?</div><div class="mono t-3 fs-micro">R-4461 · Regulatory</div></td>
+            <td><span class="pill pill-violet"><i data-icon="scale"></i>Disputed</span></td>
+            <td class="num t-no fw-600">88.4%</td>
+            <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Ethereum</span></td>
+            <td class="fs-sm t-3">Re-evaluating</td>
+            <td><i data-icon="chevright" class="t-4"></i></td>
+          </tr>
+          <tr onclick="location.href='resolution-detail.html'">
+            <td><div class="fw-500">Did Bitcoin exceed $100,000 on May 20, 2026?</div><div class="mono t-3 fs-micro">R-4465 · DeFi</div></td>
+            <td><span class="pill pill-yes"><i data-icon="check"></i>Resolved · YES</span></td>
+            <td class="num t-yes fw-600">92.8%</td>
+            <td><span class="row gap-2"><span class="cred high"><span class="cd"></span></span>Base</span></td>
+            <td class="fs-sm t-3">May 20</td>
+            <td><i data-icon="chevright" class="t-4"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
