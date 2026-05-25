@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veritas · Authority Registry</title>
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+</head>
+<body data-page="authority" data-crumb="Authority Registry">
+  <div class="page-inner" style="max-width:1040px">
+
+    <div class="page-head">
+      <div class="row-between">
+        <div>
+          <h1 class="page-title">Authority Registry</h1>
+          <p class="page-sub">The trusted-source list that grounds every resolution</p>
+        </div>
+        <div class="row gap-2">
+          <div class="topbar-search" style="width:220px"><div class="input-wrap"><i data-icon="search"></i><input class="input" style="height:34px" placeholder="Search sources…" /></div></div>
+          <button class="btn btn-primary"><i data-icon="plus"></i>Propose source</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner info mb-5"><i data-icon="shield"></i><div>The registry is Veritas's primary defense against source manipulation. Tier 1 and Tier 2 are curated centrally; your workspace controls Tier 3 and the blocklist.</div></div>
+
+    <!-- Tier 1 -->
+    <div class="src-tier">
+      <div class="src-tier-head"><span class="tier-badge tier-1">TIER 1</span><span class="h3">Primary authorities</span><span class="t-3 fs-sm">ground truth · maximum weight</span></div>
+      <div class="src-grid">
+        <span class="src-chip"><span class="src-fav">Fed</span>Federal Reserve<span class="cred primary"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">SEC</span>U.S. SEC<span class="cred primary"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">BLS</span>Bureau of Labor Statistics<span class="cred primary"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">ECB</span>European Central Bank<span class="cred primary"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">T</span>U.S. Treasury / OFAC<span class="cred primary"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">CMC</span>CoinMarketCap (verified API)<span class="cred primary"><span class="cd"></span></span></span>
+      </div>
+    </div>
+
+    <!-- Tier 2 -->
+    <div class="src-tier">
+      <div class="src-tier-head"><span class="tier-badge tier-2">TIER 2</span><span class="h3">High credibility</span><span class="t-3 fs-sm">strong corroborating sources</span></div>
+      <div class="src-grid">
+        <span class="src-chip"><span class="src-fav">WSJ</span>Wall Street Journal<span class="cred high"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">B</span>Bloomberg<span class="cred high"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">R</span>Reuters<span class="cred high"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">AP</span>Associated Press<span class="cred high"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">FT</span>Financial Times<span class="cred high"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">CD</span>CoinDesk<span class="cred high"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">TB</span>The Block<span class="cred high"><span class="cd"></span></span></span>
+        <span class="src-chip"><span class="src-fav">DL</span>DL News<span class="cred high"><span class="cd"></span></span></span>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <!-- Tier 3 -->
+      <div class="src-tier">
+        <div class="src-tier-head"><span class="tier-badge tier-3">TIER 3</span><span class="h3">Medium credibility</span></div>
+        <div class="card card-pad">
+          <div class="row-between">
+            <div><div class="display" style="font-size:28px">42</div><div class="fs-sm t-3 mt-1">corroborating-only sources</div></div>
+            <button class="btn btn-secondary btn-sm">Manage<i data-icon="arrowright"></i></button>
+          </div>
+          <p class="fs-xs t-3 mt-4">Workspace-controlled. Contribute at reduced weight and never as sole evidence.</p>
+        </div>
+      </div>
+
+      <!-- Blocklist -->
+      <div class="src-tier">
+        <div class="src-tier-head"><span class="tier-badge tier-block">BLOCK</span><span class="h3">Never cite</span></div>
+        <div class="card card-pad">
+          <div class="src-grid">
+            <span class="tag" style="border-color:var(--no-line)"><span class="cred low"><span class="cd"></span></span>ZeroHedge<span class="tag-close"><i data-icon="x"></i></span></span>
+            <span class="tag" style="border-color:var(--no-line)"><span class="cred low"><span class="cd"></span></span>unverified-blogs.*<span class="tag-close"><i data-icon="x"></i></span></span>
+          </div>
+          <button class="btn btn-secondary btn-sm mt-4"><i data-icon="plus"></i>Add to blocklist</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proposed -->
+    <div class="src-tier mt-5">
+      <div class="src-tier-head"><span class="tier-badge" style="background:var(--amber-soft);color:var(--amber)">PENDING</span><span class="h3">Proposed sources</span><span class="t-3 fs-sm">awaiting review</span></div>
+      <div class="card">
+        <table class="table">
+          <thead><tr><th>Source</th><th>Proposed by</th><th>Suggested tier</th><th></th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="row gap-2"><span class="src-fav" style="width:18px;height:18px">D</span>Decrypt.co</div></td>
+              <td class="mono fs-sm t-3">user@yourprotocol.io</td>
+              <td><span class="tier-badge tier-3">Tier 3</span></td>
+              <td class="text-right"><div class="row gap-2" style="justify-content:flex-end"><button class="btn btn-secondary btn-sm">Reject</button><button class="btn btn-primary btn-sm"><i data-icon="check"></i>Approve</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="row gap-2"><span class="src-fav" style="width:18px;height:18px">CG</span>CoinGecko (API)</div></td>
+              <td class="mono fs-sm t-3">0x3f9a…d1b2</td>
+              <td><span class="tier-badge tier-2">Tier 2</span></td>
+              <td class="text-right"><div class="row gap-2" style="justify-content:flex-end"><button class="btn btn-secondary btn-sm">Reject</button><button class="btn btn-primary btn-sm"><i data-icon="check"></i>Approve</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
