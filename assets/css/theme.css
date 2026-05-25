@@ -1,0 +1,221 @@
+/* ============================================================
+   VERITAS — Design Tokens & Base Theme
+   A precision instrument for on-chain truth.
+   Near-monochrome dark UI · cool-blue accent · semantic verdicts
+   ============================================================ */
+
+:root {
+  /* ---- Surface / Background ---------------------------------- */
+  --bg:            #08090B;   /* app canvas — rich near-black */
+  --bg-raised:     #0C0D10;   /* sidebar / topbar */
+  --surface-1:     #0F1014;   /* base card */
+  --surface-2:     #15161B;   /* hover / nested card */
+  --surface-3:     #1B1C22;   /* elevated (dropdown, popover) */
+  --surface-inset: #0A0B0E;   /* wells, code blocks, inputs */
+
+  /* ---- Hairlines / Borders ----------------------------------- */
+  --border:        rgba(255,255,255,0.07);
+  --border-strong: rgba(255,255,255,0.11);
+  --border-faint:  rgba(255,255,255,0.045);
+
+  /* ---- Text -------------------------------------------------- */
+  --text-1: #ECEDEF;   /* primary */
+  --text-2: #9A9BA3;   /* secondary */
+  --text-3: #6A6B73;   /* tertiary / muted */
+  --text-4: #494A52;   /* faint / disabled */
+
+  /* ---- Brand accent (interactive only) ----------------------- */
+  --accent:        #4C8DFF;
+  --accent-hover:  #6AA0FF;
+  --accent-press:  #3C7AE8;
+  --accent-soft:   rgba(76,141,255,0.12);
+  --accent-line:   rgba(76,141,255,0.28);
+  --accent-glow:   rgba(76,141,255,0.45);
+
+  /* ---- Semantic — verdicts & status -------------------------- */
+  --yes:        #35C77B;   /* affirmative verdict */
+  --yes-soft:   rgba(53,199,123,0.13);
+  --yes-line:   rgba(53,199,123,0.30);
+
+  --no:         #F0556B;   /* negative verdict */
+  --no-soft:    rgba(240,85,107,0.13);
+  --no-line:    rgba(240,85,107,0.30);
+
+  --amber:      #E0A33E;   /* pending / caution */
+  --amber-soft: rgba(224,163,62,0.13);
+  --amber-line: rgba(224,163,62,0.30);
+
+  --neutral:      #7E8089; /* invalid / unresolvable */
+  --neutral-soft: rgba(126,128,137,0.13);
+
+  --violet:      #A98BFF;  /* disputes / re-eval */
+  --violet-soft: rgba(169,139,255,0.13);
+  --violet-line: rgba(169,139,255,0.30);
+
+  /* ---- Typography -------------------------------------------- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+               "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", "Roboto Mono", ui-monospace,
+               Menlo, Consolas, monospace;
+
+  --fs-display: 34px;
+  --fs-h1:      22px;
+  --fs-h2:      16px;
+  --fs-h3:      14px;
+  --fs-body:    13.5px;
+  --fs-sm:      12.5px;
+  --fs-xs:      11.5px;
+  --fs-micro:   10.5px;
+
+  --lh-tight: 1.2;
+  --lh-snug:  1.4;
+  --lh-body:  1.55;
+
+  /* ---- Spacing (4px grid) ------------------------------------ */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 20px;  --s-6: 24px;  --s-7: 32px;  --s-8: 40px;
+  --s-9: 48px;  --s-10: 64px;
+
+  /* ---- Radii ------------------------------------------------- */
+  --r-xs: 5px;
+  --r-sm: 7px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 18px;
+  --r-pill: 999px;
+
+  /* ---- Elevation --------------------------------------------- */
+  --shadow-sm:  0 1px 2px rgba(0,0,0,0.40);
+  --shadow-md:  0 6px 20px rgba(0,0,0,0.45);
+  --shadow-lg:  0 18px 48px rgba(0,0,0,0.55);
+  --hairline-top: inset 0 1px 0 rgba(255,255,255,0.04);
+
+  /* ---- Layout metrics ---------------------------------------- */
+  --sidebar-w: 244px;
+  --topbar-h:  60px;
+  --page-max:  1320px;
+
+  /* ---- Motion ------------------------------------------------ */
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 120ms;
+  --t-mid:  200ms;
+  --t-slow: 320ms;
+}
+
+/* ============================================================
+   Reset
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-1);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv01", "cv03", "ss01", "tnum";
+  letter-spacing: -0.006em;
+  text-rendering: optimizeLegibility;
+  overflow: hidden; /* shell manages its own scroll regions */
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+button { cursor: pointer; }
+
+a { color: inherit; text-decoration: none; }
+
+svg { display: block; }
+
+ul, ol { list-style: none; }
+
+::selection { background: var(--accent-soft); color: #fff; }
+
+/* ---- Scrollbars (thin, unobtrusive) ------------------------- */
+* { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.12) transparent; }
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.10);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.18); background-clip: padding-box; }
+
+/* ============================================================
+   Typography helpers
+   ============================================================ */
+.display {
+  font-size: var(--fs-display);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+.h1 { font-size: var(--fs-h1); font-weight: 600; letter-spacing: -0.02em; line-height: var(--lh-tight); }
+.h2 { font-size: var(--fs-h2); font-weight: 600; letter-spacing: -0.012em; }
+.h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.008em; }
+
+.eyebrow {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.mono { font-family: var(--font-mono); letter-spacing: 0; font-feature-settings: "tnum"; }
+.tnum { font-variant-numeric: tabular-nums; }
+
+.t-2 { color: var(--text-2); }
+.t-3 { color: var(--text-3); }
+.t-yes { color: var(--yes); }
+.t-no { color: var(--no); }
+.t-amber { color: var(--amber); }
+.t-accent { color: var(--accent); }
+.t-violet { color: var(--violet); }
+
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-680 { font-weight: 680; }
+
+.fs-micro { font-size: var(--fs-micro); }
+.fs-xs { font-size: var(--fs-xs); }
+.fs-sm { font-size: var(--fs-sm); }
+.fs-body { font-size: var(--fs-body); }
+.fs-h3 { font-size: var(--fs-h3); }
+.fs-h2 { font-size: var(--fs-h2); }
+.lh-snug { line-height: var(--lh-snug); }
+.truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.mt-1 { margin-top: var(--s-1); } .mt-2 { margin-top: var(--s-2); } .mt-3 { margin-top: var(--s-3); }
+.mt-4 { margin-top: var(--s-4); } .mt-5 { margin-top: var(--s-5); } .mt-6 { margin-top: var(--s-6); }
+.mb-2 { margin-bottom: var(--s-2); } .mb-3 { margin-bottom: var(--s-3); } .mb-4 { margin-bottom: var(--s-4); }
+.mb-5 { margin-bottom: var(--s-5); } .mb-6 { margin-bottom: var(--s-6); }
+.pad-5 { padding: var(--s-5); } .pad-6 { padding: var(--s-6); }
+
+/* Utility */
+.row { display: flex; align-items: center; }
+.row-between { display: flex; align-items: center; justify-content: space-between; }
+.col { display: flex; flex-direction: column; }
+.gap-1 { gap: var(--s-1); } .gap-2 { gap: var(--s-2); } .gap-3 { gap: var(--s-3); }
+.gap-4 { gap: var(--s-4); } .gap-5 { gap: var(--s-5); } .gap-6 { gap: var(--s-6); }
+.wrap { flex-wrap: wrap; }
+.grow { flex: 1; }
+.center { align-items: center; }
+.ml-auto { margin-left: auto; }
+.hidden { display: none !important; }
+.nowrap { white-space: nowrap; }
+.text-right { text-align: right; }
